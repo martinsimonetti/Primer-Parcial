@@ -5,7 +5,7 @@
  
 <?php 
  
-session_start();
+//session_start();
 if(!isset($_SESSION['registrado'])){  ?>
     <div id="formLogin" class="container">
 

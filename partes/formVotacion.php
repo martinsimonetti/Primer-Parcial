@@ -5,15 +5,15 @@
  
 <?php 
  
-session_start();
+//session_start();
 if(isset($_SESSION['registrado'])){  ?>
     <div class="container">
 
       <form  class="form-ingreso " onsubmit="GuardarVoto();return false;">
         <h2 class="form-ingreso-heading">Votar</h2>
         <label for="Provincia" class="sr-only" hidden>Provincia</label>
-                <input type="text" id="Provincia" class="form-control" placeholder="Provincia" required="" autofocus="">
-        <select >
+                <input type="text" id="provincia" class="form-control" placeholder="Provincia" required="" autofocus="">
+        <select id="candidato">
           <option value="Candidato1">Candidato 1</option>
           <option value="Candidato2">Candidato 2</option>
           <option value="Candidato3">Candidato 3</option>
@@ -26,7 +26,7 @@ if(isset($_SESSION['registrado'])){  ?>
           
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button>
-        <input type="hidden" name="idVoto" id="idVoto" readonly>
+        <input type="hidden" name="id" id="id" readonly>
       </form>
 
 

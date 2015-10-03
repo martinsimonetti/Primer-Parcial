@@ -1,15 +1,15 @@
 <?php 
+session_start();
 require_once("clases/AccesoDatos.php");
-//require_once("clases/cd.php");
-
+require_once("clases/voto.php");
 $queHago=$_POST['queHacer'];
 
 switch ($queHago) {
 	case 'votacion':
 		include("partes/formVotacion.php");
 		break;
-	case 'video':
-			include("partes/video.html");
+	case 'desloguear':
+			include("php/deslogearDni.php");
 		break;	
 	case 'MostarBotones':
 			include("partes/botonesABM.php");
@@ -30,13 +30,14 @@ switch ($queHago) {
 			echo $cantidad;
 
 		break;
-	case 'GuardarCD':
-			$cd = new cd();
-			$cd->id=$_POST['id'];
-			$cd->cantante=$_POST['cantante'];
-			$cd->titulo=$_POST['titulo'];
-			$cd->año=$_POST['anio'];
-			$cantidad=$cd->GuardarCD();
+	case 'GuardarVoto':
+			$voto = new voto();
+			$voto->id=$_POST['id'];
+			$voto->dni=$_SESSION['registrado'];
+			$voto->candidato=$_POST['candidato'];
+			$voto->provincia=$_POST['provincia'];
+			$voto->sexo=$_POST['sexo'];
+			$cantidad=$voto->Guardarvoto();
 			echo $cantidad;
 
 		break;

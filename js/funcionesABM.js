@@ -44,14 +44,14 @@ function EditarCD(idParametro)
 
 function GuardarVoto()
 {
-		var id=$("#id")
+		alert("Entre al metodo");
+		var id=$("#id").val();
 		var candidato=$("#candidato").val();
 		var provincia=$("#provincia").val();
 		var sexo=$("#sexo").val();
-
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
-		type:"post",
+		type:"POST",
 		data:{
 			queHacer:"GuardarVoto",
 			candidato:candidato,
@@ -61,11 +61,14 @@ function GuardarVoto()
 		}
 	});
 	funcionAjax.done(function(retorno){
-			//Mostrar("MostrarGrilla");
+		alert(retorno);
+			Mostrar("desloguear");
+			Mostrar("MostarLogin");
 		$("#informe").html("cantidad de agregados "+ retorno);	
 		
 	});
 	funcionAjax.fail(function(retorno){	
+		alert(retorno);
 		$("#informe").html(retorno.responseText);	
 	});	
 }
