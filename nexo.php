@@ -23,10 +23,10 @@ switch ($queHago) {
 	case 'MostrarFormAlta':
 			include("partes/formCd.php");
 		break;
-	case 'BorrarCD':
-			$cd = new cd();
-			$cd->id=$_POST['id'];
-			$cantidad=$cd->BorrarCd();
+	case 'BorrarVoto':
+			$voto = new voto();
+			$voto->id=$_POST['id'];
+			$cantidad=$voto->Borrarvoto();
 			echo $cantidad;
 
 		break;

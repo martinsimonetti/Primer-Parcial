@@ -1,11 +1,11 @@
-function BorrarCD(idParametro)
+function Borrarvoto(idParametro)
 {
 	//alert(idParametro);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"BorrarCD",
+			queHacer:"BorrarVoto",
 			id:idParametro	
 		}
 	});
