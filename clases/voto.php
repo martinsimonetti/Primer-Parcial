@@ -103,7 +103,7 @@ class voto
   	public static function TraerTodoLosvotos()
 	{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("select id,dni as dni, provincia as provincia,candidato as candidato from votos");
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id,dni as dni, provincia as provincia,candidato as candidato from voto");
 			$consulta->execute();			
 			return $consulta->fetchAll(PDO::FETCH_CLASS, "voto");		
 	}
