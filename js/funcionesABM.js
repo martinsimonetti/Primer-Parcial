@@ -19,32 +19,32 @@ function Borrarvoto(idParametro)
 	});	
 }
 
-function EditarCD(idParametro)
+function Editarvoto(idParametro)
 {
+	//alert("Modificar");
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
-			queHacer:"TraerCD",
+			queHacer:"TraerVoto",
 			id:idParametro	
 		}
 	});
 	funcionAjax.done(function(retorno){
-		var cd =JSON.parse(retorno);	
-		$("#idCD").val(cd.id);
-		$("#cantante").val(cd.cantante);
-		$("#titulo").val(cd.titulo);
-		$("#anio").val(cd.año);
+		var voto =JSON.parse(retorno);		
+		//$("#id").val(voto.id);
+		$("#provincia").val(voto.provincia);
+		//$("#candidato").val(voto.candidato);
+		//$("#sexo").val(voto.sexo);		
 	});
-	funcionAjax.fail(function(retorno){	
-		$("#informe").html(retorno.responseText);	
-	});	
-	Mostrar("MostrarFormAlta");
+	funcionAjax.fail(function(retorno){
+		$("#principal").html(retorno.responseText);	
+	});
+	Mostrar('MostrarFormAlta');
 }
 
 function GuardarVoto()
 {
-		alert("Entre al metodo");
 		var id=$("#id").val();
 		var candidato=$("#candidato").val();
 		var provincia=$("#provincia").val();
@@ -68,7 +68,7 @@ function GuardarVoto()
 		
 	});
 	funcionAjax.fail(function(retorno){	
-		alert(retorno);
+		//alert(retorno);
 		$("#informe").html(retorno.responseText);	
 	});	
 }

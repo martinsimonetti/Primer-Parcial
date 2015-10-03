@@ -21,7 +21,7 @@ switch ($queHago) {
 			include("partes/formLogin.php");
 		break;
 	case 'MostrarFormAlta':
-			include("partes/formCd.php");
+			include("partes/formVotacion.php");
 		break;
 	case 'BorrarVoto':
 			$voto = new voto();
@@ -41,9 +41,9 @@ switch ($queHago) {
 			echo $cantidad;
 
 		break;
-	case 'TraerCD':
-			$cd = cd::TraerUnCd($_POST['id']);		
-			echo json_encode($cd) ;
+	case 'TraerVoto':
+			$voto = voto::TraerUnvoto($_POST['id']);		
+			echo json_encode($voto);
 
 		break;
 	default:

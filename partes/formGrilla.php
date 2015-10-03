@@ -2,7 +2,6 @@
 	require_once("clases/AccesoDatos.php");
 	require_once("clases/voto.php");
 	$arrayDevotos=voto::TraerTodoLosvotos();
-	echo "<h2> Bienvenido: ". $_SESSION['registrado']."</h2>";
 
  ?>
 <table class="table"  style=" background-color: beige;">
