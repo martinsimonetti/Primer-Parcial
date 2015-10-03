@@ -5,8 +5,8 @@ require_once("clases/AccesoDatos.php");
 $queHago=$_POST['queHacer'];
 
 switch ($queHago) {
-	case 'foto':
-		include("partes/imagen.php");
+	case 'votacion':
+		include("partes/formVotacion.php");
 		break;
 	case 'video':
 			include("partes/video.html");
