@@ -40,6 +40,7 @@ class voto
  			$this->Modificarvoto();
  		}else {
  			$this->InsertarElvoto();
+ 			setcookie("ultimaProvincia", $this->provincia, time()+86400, "/");
  		}
 
 	 }

@@ -3,7 +3,7 @@
 <link href="css/ingreso.css" rel="stylesheet">
  
 <?php
- 
+
 session_start();
 if(isset($_SESSION['registrado'])){  ?>
     <div class="container">
@@ -11,7 +11,10 @@ if(isset($_SESSION['registrado'])){  ?>
       <form  class="form-ingreso " onsubmit="GuardarVoto(); return false;">
         <h2 class="form-ingreso-heading">Votar</h2>
         <label for="Provincia" class="sr-only" hidden>Provincia</label>
-                <input type="text" id="provincia" class="form-control" placeholder="Provincia" required="" autofocus="">
+                <input type="text" id="provincia" class="form-control" placeholder="Provincia" required="" autofocus=""
+                value="<?php if (isset($_COOKIE['ultimaProvincia'])) {
+                                  echo $_COOKIE['ultimaProvincia'];
+                                } ?>">
         <select id="candidato">
           <option value="Scioli">Scioli</option>
           <option value="Massa">Massa</option>
