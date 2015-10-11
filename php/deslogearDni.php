@@ -1,8 +1,7 @@
 <?php 
-session_start();
+	session_start();
 
-	$_SESSION['registrado']=null;
+		$_SESSION['registrado']=null;
 
-session_destroy();
-
+	session_destroy();
  ?>

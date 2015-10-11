@@ -1,22 +1,18 @@
 <?php 
-session_start();
-$dni=$_POST['dni'];
-$recordar=$_POST['recordarme'];
+	session_start();
 
-$retorno;
+	$dni=$_POST['dni'];
+	$recordar=$_POST['recordarme'];
+	$_SESSION['registrado'] = $dni;
 
 	if($recordar=="true")
 	{
-		setcookie("registro",$usuario,  time()+36000 , '/');
-		
-	}else
-	{
-		setcookie("registro",$usuario,  time()-36000 , '/');
+		setcookie("registro",$dni,  time()+36000 , '/');
 		
 	}
-	$_SESSION['registrado']=$dni;
-	$retorno=" ingreso";
-
-
-echo $retorno;
+	else
+	{
+		setcookie("registro",$dni,  time()-36000 , '/');
+		
+	}	
 ?>

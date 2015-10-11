@@ -1,6 +1,5 @@
 function Borrarvoto(idParametro)
 {
-	//alert(idParametro);
 		var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -11,45 +10,59 @@ function Borrarvoto(idParametro)
 	});
 	funcionAjax.done(function(retorno){
 		Mostrar("MostrarGrilla");
-		$("#informe").html("cantidad de eliminados "+ retorno);	
 		
 	});
-	funcionAjax.fail(function(retorno){	
-		$("#informe").html(retorno.responseText);	
+	funcionAjax.fail(function(retorno){
+		alert(retorno);
 	});	
 }
 
 function Editarvoto(idParametro)
 {
-	//alert("Modificar");
+	Mostrar('MostrarFormAlta');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
 		data:{
 			queHacer:"TraerVoto",
-			id:idParametro	
+			id:idParametro
 		}
 	});
-	funcionAjax.done(function(retorno){
+
+	funcionAjax.done(function(retorno){		
 		var voto =JSON.parse(retorno);		
-		//$("#id").val(voto.id);
+		$("#id").val(voto.id);
+		//alert(voto.id);
 		$("#provincia").val(voto.provincia);
-		//$("#candidato").val(voto.candidato);
-		//$("#sexo").val(voto.sexo);		
+		//alert(voto.provincia);
+		$("#candidato").val(voto.candidato);
+		//alert(voto.candidato);
+		//alert(voto.sexo);
+		if (voto.sexo == 'M') {
+			document.getElementById('sexoM').checked = true;
+		}
+		else{
+			document.getElementById('sexoF').checked = true;
+		}		
 	});
 	funcionAjax.fail(function(retorno){
-		$("#principal").html(retorno.responseText);	
-	});
-	Mostrar('MostrarFormAlta');
+		alert(retorno);
+	});	
 }
 
 function GuardarVoto()
 {
-		var id=$("#id").val();
-		var candidato=$("#candidato").val();
-		var provincia=$("#provincia").val();
-		var sexo=$("#sexo").val();
-		var funcionAjax=$.ajax({
+	var id=$("#id").val();
+	var candidato=$("#candidato").val();
+	var provincia=$("#provincia").val();
+	var sexo;
+	if (document.getElementById('sexoM').checked == true) {
+		sexo = 'M';
+	}
+	else{
+		sexo = 'F';
+	}
+	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"POST",
 		data:{
@@ -57,18 +70,14 @@ function GuardarVoto()
 			candidato:candidato,
 			provincia:provincia,
 			sexo:sexo,
-			id:id	
+			id:id
 		}
 	});
 	funcionAjax.done(function(retorno){
-		alert(retorno);
-			Mostrar("desloguear");
-			Mostrar("MostarLogin");
-		$("#informe").html("cantidad de agregados "+ retorno);	
-		
+		Mostrar("desloguear");
+		Mostrar("MostrarGrilla");		
 	});
 	funcionAjax.fail(function(retorno){	
-		//alert(retorno);
-		$("#informe").html(retorno.responseText);	
+		alert(retorno);
 	});	
 }

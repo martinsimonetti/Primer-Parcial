@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once("clases/AccesoDatos.php");
 require_once("clases/voto.php");
 $queHago=$_POST['queHacer'];
@@ -10,9 +9,6 @@ switch ($queHago) {
 		break;
 	case 'desloguear':
 			include("php/deslogearDni.php");
-		break;	
-	case 'MostarBotones':
-			include("partes/botonesABM.php");
 		break;
 	case 'MostrarGrilla':
 			include("partes/formGrilla.php");
@@ -28,9 +24,9 @@ switch ($queHago) {
 			$voto->id=$_POST['id'];
 			$cantidad=$voto->Borrarvoto();
 			echo $cantidad;
-
 		break;
 	case 'GuardarVoto':
+			session_start();
 			$voto = new voto();
 			$voto->id=$_POST['id'];
 			$voto->dni=$_SESSION['registrado'];
@@ -39,16 +35,13 @@ switch ($queHago) {
 			$voto->sexo=$_POST['sexo'];
 			$cantidad=$voto->Guardarvoto();
 			echo $cantidad;
-
 		break;
 	case 'TraerVoto':
 			$voto = voto::TraerUnvoto($_POST['id']);		
 			echo json_encode($voto);
-
 		break;
 	default:
 		# code...
 		break;
 }
-
  ?>
