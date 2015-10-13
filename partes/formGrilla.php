@@ -7,7 +7,7 @@
 <table class="table"  style=" background-color: beige;">
 	<thead>
 		<tr>
-			<th>Editar</th><th>Borrar</th><th>DNI</th><th>Candidato</th><th>Provincia</th><th>Sexo</th>
+			<th>Editar</th><th>Borrar</th><th>DNI</th><th>Candidato</th><th>Provincia</th><th>Localidad</th><th>Dirección</th><th>Sexo</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -21,6 +21,8 @@ foreach ($arrayDevotos as $voto) {
 			<td>$voto->dni</td>
 			<td>$voto->candidato</td>
 			<td>$voto->provincia</td>
+			<td>$voto->localidad</td>
+			<td>$voto->direccion</td>
 			<td>$voto->sexo</td>
 		</tr>   ";
 }

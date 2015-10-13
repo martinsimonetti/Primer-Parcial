@@ -15,6 +15,10 @@ if(isset($_SESSION['registrado'])){  ?>
                 value="<?php if (isset($_COOKIE['ultimaProvincia'])) {
                                   echo $_COOKIE['ultimaProvincia'];
                                 } ?>">
+        <label for="Localidad" class="sr-only" hidden>Localidad</label>
+                <input type="text" id="localidad" class="form-control" placeholder="Localidad" required="" autofocus="">
+        <label for="Direccion" class="sr-only" hidden>Direccion</label>
+                <input type="text" id="direccion" class="form-control" placeholder="Direccion" required="" autofocus="">
         <select id="candidato">
           <option value="Scioli">Scioli</option>
           <option value="Massa">Massa</option>

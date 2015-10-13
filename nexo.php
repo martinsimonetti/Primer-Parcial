@@ -32,6 +32,8 @@ switch ($queHago) {
 			$voto->dni=$_SESSION['registrado'];
 			$voto->candidato=$_POST['candidato'];
 			$voto->provincia=$_POST['provincia'];
+			$voto->localidad=$_POST['localidad'];
+			$voto->direccion=$_POST['direccion'];
 			$voto->sexo=$_POST['sexo'];
 			$cantidad=$voto->Guardarvoto();
 			echo $cantidad;

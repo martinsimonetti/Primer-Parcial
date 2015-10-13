@@ -35,6 +35,8 @@ function Editarvoto(idParametro)
 		//alert(voto.id);
 		$("#provincia").val(voto.provincia);
 		//alert(voto.provincia);
+		$("#localidad").val(voto.localidad);
+		$("#direccion").val(voto.direccion);
 		$("#candidato").val(voto.candidato);
 		//alert(voto.candidato);
 		//alert(voto.sexo);
@@ -55,6 +57,8 @@ function GuardarVoto()
 	var id=$("#id").val();
 	var candidato=$("#candidato").val();
 	var provincia=$("#provincia").val();
+	var localidad=$("#localidad").val();
+	var direccion=$("#direccion").val();
 	var sexo;
 	if (document.getElementById('sexoM').checked == true) {
 		sexo = 'M';
@@ -69,6 +73,8 @@ function GuardarVoto()
 			queHacer:"GuardarVoto",
 			candidato:candidato,
 			provincia:provincia,
+			localidad:localidad,
+			direccion:direccion,
 			sexo:sexo,
 			id:id
 		}

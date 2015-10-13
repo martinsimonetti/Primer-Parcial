@@ -4,6 +4,8 @@ class voto
 	public $id;
  	public $dni;
   	public $provincia;
+  	public $localidad;
+  	public $direccion;
   	public $candidato;
   	public $sexo;
 
@@ -20,7 +22,7 @@ class voto
 	 {
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-			CALL ModificarVoto('$this->id', '$this->candidato','$this->provincia', '$this->sexo')");
+			CALL ModificarVoto('$this->id','$this->candidato','$this->provincia','$this->sexo','$this->localidad','$this->direccion')");
 		return $consulta->execute();
 	 }
 	  
@@ -28,7 +30,7 @@ class voto
 	 {
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("
-			CALL InsertarVoto('$this->dni','$this->provincia','$this->candidato','$this->sexo')");
+			CALL InsertarVoto('$this->dni','$this->provincia','$this->candidato','$this->sexo','$this->localidad','$this->direccion')");
 		$consulta->execute();
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
 	 }
