@@ -19,6 +19,9 @@ switch ($queHago) {
 	case 'MostrarFormAlta':
 			include("partes/formVotacion.php");
 		break;
+	case 'VerEnMapa':
+		include("partes/formMapa.php");
+		break;
 	case 'BorrarVoto':
 			$voto = new voto();
 			$voto->id=$_POST['id'];
