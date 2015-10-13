@@ -74,6 +74,7 @@ function GuardarVoto()
 		}
 	});
 	funcionAjax.done(function(retorno){
+		$("#Contador").html(retorno);
 		Mostrar("desloguear");
 		Mostrar("MostrarGrilla");		
 	});

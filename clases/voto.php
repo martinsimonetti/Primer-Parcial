@@ -38,12 +38,14 @@ class voto
 	 	if($this->id>0)
  		{
  			$this->Modificarvoto();
- 		}else {
- 			$this->InsertarElvoto();
- 			setcookie("ultimaProvincia", $this->provincia, time()+86400, "/");
  		}
-
-	 }
+ 		else
+ 		{
+ 			$this->InsertarElvoto();
+ 			include("partes/contarVotos.php");
+ 			return $contador;
+ 		} 			
+ 	}
 
   	public static function TraerTodoLosvotos()
 	{

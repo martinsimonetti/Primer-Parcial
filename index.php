@@ -63,9 +63,10 @@
 			<hr>
 			<div id="principal">
 
-<?php
+			<?php
+				
+			?>
 
-?>
 			</div>		
 
 		</article>
